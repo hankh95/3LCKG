@@ -1,0 +1,23 @@
+id,label,title,version,language,uri,level,order,type,text,code,system,display,citation,doi,pmid,url,layer,assetId,assetType
+bp-t2dm,BestTopic,Type 2 diabetes mellitus,2025-01,en,urn:bmj:bp:t2dm,,,,,,,,,,,,,,
+bp-sec-overview,BestSection,Overview,,,,1,1,,,,,,,,,,,,
+bp-sec-assessment,BestSection,Initial assessment,,,,1,2,,,,,,,,,,,,
+bp-sec-diagnosis,BestSection,Diagnosis,,,,1,3,,,,,,,,,,,,
+bp-sec-treatment,BestSection,Treatment,,,,1,4,,,,,,,,,,,,
+bp-sec-cvdrisk,BestSection,Cardiovascular risk management,,,,1,5,,,,,,,,,,,,
+bp-sec-ckd,BestSection,Kidney disease management,,,,1,6,,,,,,,,,,,,
+bp-sec-monitor,BestSection,Monitoring and follow-up,,,,1,7,,,,,,,,,,,,
+bp-sec-comp,BestSection,Complications,,,,1,8,,,,,,,,,,,,
+bp-item-baseline-labs,BestItem,Baseline labs,,,,,1,ordered-list,,,,,,,,,,,
+bp-item-screening,BestItem,Screening for complications,,,,,2,bullet-list,,,,,,,,,,,
+bp-para-labs-1,BestParagraph,,,,,,1,,"Order HbA1c, fasting glucose, eGFR/creatinine, urine albumin-to-creatinine ratio, lipid profile, ALT, TSH if indicated.",,,,,,,,,,
+bp-para-screen-1,BestParagraph,,,,,,1,,"Arrange retinal exam, foot exam with monofilament, blood pressure measurement, and ASCVD risk estimation.",,,,,,,,,,
+sct-44054006,Concept,,,,,,,,,44054006,http://snomed.info/sct,Diabetes mellitus type 2 (disorder),,,,,,,
+sct-698247007,Concept,,,,,,,,,698247007,http://snomed.info/sct,Measurement of glycated hemoglobin A1c (procedure),,,,,,,
+loinc-17856-6,Concept,,,,,,,,,17856-6,http://loinc.org,Hemoglobin A1c/Hemoglobin.total in Blood by HPLC,,,,,,,
+sct-709044004,Concept,,,,,,,,,709044004,http://snomed.info/sct,Estimated glomerular filtration rate (observable entity),,,,,,,
+sct-414545008,Concept,,,,,,,,,414545008,http://snomed.info/sct,Atherosclerotic cardiovascular disease (disorder),,,,,,,
+asset-gsrl-bmj-path,AssetRef,BMJ T2DM Top-level Pathway,,,,,,,,,,,,,,,GSRL,bmj-pathway,CPGPathway
+asset-rall-dt-first,AssetRef,First-line therapy decision table,,,,,,,,,,,,,,,RALL,PD_DT_First,DecisionTable
+asset-rall-lib-sglt2,AssetRef,Recommend SGLT2 logic,,,,,,,,,,,,,,,RALL,Lib_SGLT2,Library
+asset-watl-plan,AssetRef,Longitudinal workflow plan,,,,,,,,,,,,,,,WATL,PD_Path,PlanDefinition

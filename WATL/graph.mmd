@@ -1,0 +1,56 @@
+
+flowchart TD
+    Topic_T2DM["Topic: T2DM"]
+    Strat_Init["Strategy: Initial Evaluation"]
+    Strat_Gly["Strategy: Glycaemia"]
+    Strat_CVD["Strategy: CVD/HF"]
+    Strat_CKD["Strategy: CKD"]
+    Strat_Mon["Strategy: Monitoring"]
+
+    Goal_Base["Goal: Baseline"]
+    Goal_A1c["Goal: A1c"]
+    Goal_CVD["Goal: CVD"]
+    Goal_CKD["Goal: CKD"]
+    Goal_Comp["Goal: Prevent Complications"]
+
+    PD_Path["PlanDefinition: Pathway"]
+    PD_OS_Init["OrderSet: Initial"]
+    PD_DT_First["DecisionTable: First-line"]
+    PD_OS_CVD["OrderSet: Cardio-protective"]
+    PD_OS_CKD["OrderSet: CKD"]
+    PD_OS_Mon["OrderSet: Monitoring"]
+
+    Lib_SGLT2["Library: Reco SGLT2"]
+    Lib_First["Library: First-line Framework"]
+    Lib_Statin["Library: Statin Intensity"]
+    Lib_CF_MH["Library: CF Marked Hyperglycaemia"]
+    Lib_CF_SGLT2["Library: CF CKD SGLT2 Eligibility"]
+
+    Topic_T2DM -->|HAS_STRATEGY| Strat_Init
+    Topic_T2DM --> Strat_Gly
+    Topic_T2DM --> Strat_CVD
+    Topic_T2DM --> Strat_CKD
+    Topic_T2DM --> Strat_Mon
+
+    Strat_Init -->|ACHIEVES| Goal_Base
+    Strat_Gly --> Goal_A1c
+    Strat_CVD --> Goal_CVD
+    Strat_CKD --> Goal_CKD
+    Strat_Mon --> Goal_Comp
+
+    PD_Path -->|ORDERS| PD_OS_Init
+    PD_Path --> PD_DT_First
+    PD_Path --> PD_OS_CVD
+    PD_Path --> PD_OS_CKD
+    PD_Path --> PD_OS_Mon
+
+    PD_OS_CVD -->|USES| Lib_SGLT2
+    PD_DT_First --> Lib_First
+    PD_OS_Init --> Lib_CF_MH
+    PD_OS_CKD --> Lib_CF_SGLT2
+    PD_OS_CVD --> Lib_Statin
+
+    PD_OS_Init -->|NEXT| PD_DT_First
+    PD_DT_First --> PD_OS_CVD
+    PD_OS_CVD --> PD_OS_CKD
+    PD_OS_Init --> PD_OS_Mon

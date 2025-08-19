@@ -1,0 +1,12 @@
+@prefix fhir:  <http://hl7.org/fhir/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+<Library/lib-reco-sglt2> a fhir:Library ;
+  fhir:id [ fhir:v "lib-reco-sglt2" ] ;
+  fhir:title [ fhir:v "Logic: Recommend SGLT2 for T2DM with ASCVD/HF/CKD" ] ;
+  fhir:status [ fhir:v "active" ] ;
+  fhir:content (
+    [ fhir:contentType [ fhir:v "text/markdown" ] ;
+      fhir:data [ fhir:v "Pseudocode: IF T2DM AND (ASCVD OR HF OR CKD with albuminuria) AND NOT on SGLT2 THEN recommend SGLT2."^^xsd:string ] ]
+    [ fhir:contentType [ fhir:v "text/cql" ] ;
+      fhir:data [ fhir:v "library Reco_SGLT2 version '1.0.0'\nusing FHIR version '4.0.1'\ninclude FHIRHelpers version '4.0.1'\nvalueset \"Type 2 Diabetes Mellitus\": 'ValueSet/vs-t2dm'\nvalueset \"Established ASCVD\": 'ValueSet/vs-ascvd'\nvalueset \"Heart Failure\": 'ValueSet/vs-hf'\nvalueset \"CKD with albuminuria\": 'ValueSet/vs-ckd-alb'\nvalueset \"SGLT2 inhibitors\": 'ValueSet/vs-sglt2'\ncontext Patient\ndefine \"Has T2DM\": exists ([Condition: code in \"Type 2 Diabetes Mellitus\"])\ndefine \"HighRisk\": exists([Condition: code in \"Established ASCVD\"]) or exists([Condition: code in \"Heart Failure\"]) or exists([Condition: code in \"CKD with albuminuria\"])\ndefine \"On SGLT2\": exists([MedicationRequest: medication in \"SGLT2 inhibitors\"] MR where MR.status in { 'active', 'completed' })\ndefine \"Recommend SGLT2\": \"Has T2DM\" and \"HighRisk\" and not \"On SGLT2\""^^xsd:string ] ] ) .

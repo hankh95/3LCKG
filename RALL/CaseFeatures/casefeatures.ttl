@@ -1,0 +1,24 @@
+@prefix fhir:  <http://hl7.org/fhir/> .
+
+<ObservationDefinition/cf-a1c> a fhir:ObservationDefinition ;
+  fhir:id [ fhir:v "cf-a1c" ] ;
+  fhir:code [ fhir:text [ fhir:v "Hemoglobin A1c" ] ] .
+
+<ObservationDefinition/cf-egfr> a fhir:ObservationDefinition ;
+  fhir:id [ fhir:v "cf-egfr" ] ;
+  fhir:code [ fhir:text [ fhir:v "eGFR" ] ] .
+
+<ObservationDefinition/cf-ascvd> a fhir:ObservationDefinition ;
+  fhir:id [ fhir:v "cf-ascvd" ] ;
+  fhir:code [ fhir:text [ fhir:v "Established ASCVD status" ] ] ;
+  fhir:validCodedValueSet [ fhir:reference [ fhir:reference [ fhir:v "ValueSet/vs-ascvd" ] ] ] .
+
+<ObservationDefinition/cf-hf> a fhir:ObservationDefinition ;
+  fhir:id [ fhir:v "cf-hf" ] ;
+  fhir:code [ fhir:text [ fhir:v "Heart failure status" ] ] ;
+  fhir:validCodedValueSet [ fhir:reference [ fhir:reference [ fhir:v "ValueSet/vs-hf" ] ] ] .
+
+<ObservationDefinition/cf-ckd-alb> a fhir:ObservationDefinition ;
+  fhir:id [ fhir:v "cf-ckd-alb" ] ;
+  fhir:code [ fhir:text [ fhir:v "CKD with albuminuria" ] ] ;
+  fhir:validCodedValueSet [ fhir:reference [ fhir:reference [ fhir:v "ValueSet/vs-ckd-alb" ] ] ] .

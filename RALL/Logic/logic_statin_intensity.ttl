@@ -1,0 +1,12 @@
+@prefix fhir:  <http://hl7.org/fhir/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+<Library/lib-statin-intensity> a fhir:Library ;
+  fhir:id [ fhir:v "lib-statin-intensity" ] ;
+  fhir:title [ fhir:v "Logic: Statin Intensity Selection in T2DM" ] ;
+  fhir:status [ fhir:v "active" ] ;
+  fhir:content (
+    [ fhir:contentType [ fhir:v "text/markdown" ] ;
+      fhir:data [ fhir:v "Pseudocode: IF T2DM AND ASCVD THEN High-intensity statin; ELSE IF T2DM age 40-75 THEN Moderate- to High-intensity statin."^^xsd:string ] ]
+    [ fhir:contentType [ fhir:v "text/cql" ] ;
+      fhir:data [ fhir:v "library StatinIntensity version '1.0.0'\nusing FHIR version '4.0.1'\ninclude FHIRHelpers version '4.0.1'\nvalueset \"Type 2 Diabetes Mellitus\": 'ValueSet/vs-t2dm'\nvalueset \"Established ASCVD\": 'ValueSet/vs-ascvd'\ncontext Patient\ndefine \"Has T2DM\": exists([Condition: code in \"Type 2 Diabetes Mellitus\"])\ndefine \"Has ASCVD\": exists([Condition: code in \"Established ASCVD\"])\ndefine \"Recommendation\": if \"Has T2DM\" and \"Has ASCVD\" then 'high' else if \"Has T2DM\" then 'moderate_or_high' else 'none'"^^xsd:string ] ] ) .

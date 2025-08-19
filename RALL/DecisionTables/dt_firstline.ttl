@@ -1,0 +1,12 @@
+@prefix fhir:  <http://hl7.org/fhir/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+<Library/lib-dt-firstline> a fhir:Library ;
+  fhir:id [ fhir:v "lib-dt-firstline" ] ;
+  fhir:title [ fhir:v "Decision Table: First-line Therapy Selection" ] ;
+  fhir:status [ fhir:v "active" ] ;
+  fhir:content (
+    [ fhir:contentType [ fhir:v "text/markdown" ] ;
+      fhir:data [ fhir:v "|Row|Context|Recommend|\n|1|T2DM + ASCVD/HF/CKD|SGLT2|\n|2|T2DM + ASCVD, weight loss desired|GLP-1 RA|\n|3|T2DM, no major comorbidity|Metformin|\n|4|Marked hyperglycaemia (A1c >= 10%)|Insulin|"^^xsd:string ] ]
+    [ fhir:contentType [ fhir:v "text/cql" ] ;
+      fhir:data [ fhir:v "library DT_FirstLine version '1.0.0'\nusing FHIR version '4.0.1'\ninclude FHIRHelpers version '4.0.1'\ninclude CF_MarkedHyper version '1.0.0' called Marked\nvalueset \"Type 2 Diabetes Mellitus\": 'ValueSet/vs-t2dm'\nvalueset \"Established ASCVD\": 'ValueSet/vs-ascvd'\nvalueset \"Heart Failure\": 'ValueSet/vs-hf'\nvalueset \"CKD with albuminuria\": 'ValueSet/vs-ckd-alb'\ncontext Patient\ndefine \"Row1_SGLT2\": exists([Condition: code in \"Type 2 Diabetes Mellitus\"]) and ( exists([Condition: code in \"Established ASCVD\"]) or exists([Condition: code in \"Heart Failure\"]) or exists([Condition: code in \"CKD with albuminuria\"]) )\ndefine \"Row2_GLP1\": exists([Condition: code in \"Type 2 Diabetes Mellitus\"]) and exists([Condition: code in \"Established ASCVD\"]) and not exists([Condition: code in \"CKD with albuminuria\"])\ndefine \"Row3_Metformin\": exists([Condition: code in \"Type 2 Diabetes Mellitus\"]) and not \"Row1_SGLT2\" and not \"Row2_GLP1\" and not Marked.\"Marked Hyperglycaemia\"\ndefine \"Row4_Insulin\": Marked.\"Marked Hyperglycaemia\"\ndefine \"Recommendation\": if \"Row4_Insulin\" then 'insulin' else if \"Row1_SGLT2\" then 'sglt2' else if \"Row2_GLP1\" then 'glp1' else 'metformin'"^^xsd:string ] ] ) .

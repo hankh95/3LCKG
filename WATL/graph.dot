@@ -1,0 +1,59 @@
+
+digraph BMJ_T2DM {
+  rankdir=LR;
+  node [shape=box];
+  Topic_T2DM [label="Topic: T2DM"];
+  Strat_Init [label="Strategy: Initial"];
+  Strat_Gly [label="Strategy: Glycaemia"];
+  Strat_CVD [label="Strategy: CVD/HF"];
+  Strat_CKD [label="Strategy: CKD"];
+  Strat_Mon [label="Strategy: Monitoring"];
+
+  Goal_Base [label="Goal: Baseline"];
+  Goal_A1c [label="Goal: A1c"];
+  Goal_CVD [label="Goal: CVD"];
+  Goal_CKD [label="Goal: CKD"];
+  Goal_Comp [label="Goal: Prevent Complications"];
+
+  PD_Path [label="PlanDefinition: Pathway"];
+  PD_OS_Init [label="OrderSet: Initial"];
+  PD_DT_First [label="DecisionTable: First-line"];
+  PD_OS_CVD [label="OrderSet: Cardio-protective"];
+  PD_OS_CKD [label="OrderSet: CKD"];
+  PD_OS_Mon [label="OrderSet: Monitoring"];
+
+  Lib_SGLT2 [label="Library: Reco SGLT2"];
+  Lib_First [label="Library: First-line Framework"];
+  Lib_Statin [label="Library: Statin Intensity"];
+  Lib_CF_MH [label="Library: CF Marked Hyperglycaemia"];
+  Lib_CF_SGLT2 [label="Library: CF CKD SGLT2 Eligibility"];
+
+  Topic_T2DM -> Strat_Init [label="HAS_STRATEGY"];
+  Topic_T2DM -> Strat_Gly [label="HAS_STRATEGY"];
+  Topic_T2DM -> Strat_CVD [label="HAS_STRATEGY"];
+  Topic_T2DM -> Strat_CKD [label="HAS_STRATEGY"];
+  Topic_T2DM -> Strat_Mon [label="HAS_STRATEGY"];
+
+  Strat_Init -> Goal_Base [label="ACHIEVES"];
+  Strat_Gly -> Goal_A1c [label="ACHIEVES"];
+  Strat_CVD -> Goal_CVD [label="ACHIEVES"];
+  Strat_CKD -> Goal_CKD [label="ACHIEVES"];
+  Strat_Mon -> Goal_Comp [label="ACHIEVES"];
+
+  PD_Path -> PD_OS_Init [label="ORDERS"];
+  PD_Path -> PD_DT_First [label="ORDERS"];
+  PD_Path -> PD_OS_CVD [label="ORDERS"];
+  PD_Path -> PD_OS_CKD [label="ORDERS"];
+  PD_Path -> PD_OS_Mon [label="ORDERS"];
+
+  PD_OS_CVD -> Lib_SGLT2 [label="USES"];
+  PD_DT_First -> Lib_First [label="USES"];
+  PD_OS_Init -> Lib_CF_MH [label="USES"];
+  PD_OS_CKD -> Lib_CF_SGLT2 [label="USES"];
+  PD_OS_CVD -> Lib_Statin [label="USES"];
+
+  PD_OS_Init -> PD_DT_First [label="NEXT"];
+  PD_DT_First -> PD_OS_CVD [label="NEXT"];
+  PD_OS_CVD -> PD_OS_CKD [label="NEXT"];
+  PD_OS_Init -> PD_OS_Mon [label="NEXT"];
+}

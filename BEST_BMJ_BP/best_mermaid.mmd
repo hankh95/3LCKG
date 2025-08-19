@@ -1,0 +1,31 @@
+
+flowchart TD
+    T["BestTopic: Type 2 diabetes mellitus"]
+    S1["Section: Overview"]
+    S2["Section: Initial assessment"]
+    S3["Section: Diagnosis"]
+    S4["Section: Treatment"]
+    S5["Section: Cardiovascular risk management"]
+    S6["Section: Kidney disease management"]
+    S7["Section: Monitoring and follow-up"]
+    S8["Section: Complications"]
+
+    I1["Item: Baseline labs"]
+    P1["Paragraph: Order HbA1c, eGFR, ACR, lipids, ALT, BP, retinal/foot exam"]
+
+    T -->|HAS_SECTION| S1
+    T -->|HAS_SECTION| S2
+    T -->|HAS_SECTION| S3
+    T -->|HAS_SECTION| S4
+    T -->|HAS_SECTION| S5
+    T -->|HAS_SECTION| S6
+    T -->|HAS_SECTION| S7
+    T -->|HAS_SECTION| S8
+
+    S2 -->|HAS_ITEM| I1
+    I1 -->|HAS_PARAGRAPH| P1
+
+    S1 -->|LINKS_TO_ASSET| A1["AssetRef: GSRL pathway"]
+    S4 -->|LINKS_TO_ASSET| A2["AssetRef: RALL first-line DT"]
+    S5 -->|LINKS_TO_ASSET| A3["AssetRef: RALL SGLT2 logic"]
+    S7 -->|LINKS_TO_ASSET| A4["AssetRef: WATL workflow"]

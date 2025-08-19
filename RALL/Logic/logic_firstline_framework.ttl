@@ -1,0 +1,12 @@
+@prefix fhir:  <http://hl7.org/fhir/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+<Library/lib-firstline-framework> a fhir:Library ;
+  fhir:id [ fhir:v "lib-firstline-framework" ] ;
+  fhir:title [ fhir:v "Logic: First-line Therapy Framework (Metformin/GLP-1/SGLT2/Insulin)" ] ;
+  fhir:status [ fhir:v "active" ] ;
+  fhir:content (
+    [ fhir:contentType [ fhir:v "text/markdown" ] ;
+      fhir:data [ fhir:v "Pseudocode: IF Marked Hyperglycaemia THEN insulin; ELSE IF ASCVD/HF/CKD THEN SGLT2 or GLP-1; ELSE metformin."^^xsd:string ] ]
+    [ fhir:contentType [ fhir:v "text/cql" ] ;
+      fhir:data [ fhir:v "library FirstLine_Framework version '1.0.0'\nusing FHIR version '4.0.1'\ninclude FHIRHelpers version '4.0.1'\ninclude CF_MarkedHyper version '1.0.0' called Marked\nvalueset \"Established ASCVD\": 'ValueSet/vs-ascvd'\nvalueset \"Heart Failure\": 'ValueSet/vs-hf'\nvalueset \"CKD with albuminuria\": 'ValueSet/vs-ckd-alb'\ncontext Patient\ndefine \"CardioRenalRisk\": exists([Condition: code in \"Established ASCVD\"]) or exists([Condition: code in \"Heart Failure\"]) or exists([Condition: code in \"CKD with albuminuria\"])\ndefine \"Recommendation\": if Marked.\"Marked Hyperglycaemia\" then 'insulin' else if \"CardioRenalRisk\" then 'sglt2_or_glp1' else 'metformin'"^^xsd:string ] ] ) .

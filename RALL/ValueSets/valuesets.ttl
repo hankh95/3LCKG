@@ -1,0 +1,11 @@
+@prefix fhir:  <http://hl7.org/fhir/> .
+<ValueSet/vs-t2dm> a fhir:ValueSet ; fhir:id [ fhir:v "vs-t2dm" ] ; fhir:title [ fhir:v "Type 2 Diabetes Mellitus" ] .
+<ValueSet/vs-ascvd> a fhir:ValueSet ; fhir:id [ fhir:v "vs-ascvd" ] ; fhir:title [ fhir:v "Established ASCVD" ] .
+<ValueSet/vs-hf> a fhir:ValueSet ; fhir:id [ fhir:v "vs-hf" ] ; fhir:title [ fhir:v "Heart Failure" ] .
+<ValueSet/vs-ckd-alb> a fhir:ValueSet ; fhir:id [ fhir:v "vs-ckd-alb" ] ; fhir:title [ fhir:v "CKD with albuminuria" ] .
+<ValueSet/vs-sglt2> a fhir:ValueSet ; fhir:id [ fhir:v "vs-sglt2" ] ; fhir:title [ fhir:v "SGLT2 inhibitors (CV/renal benefit)" ] .
+<ValueSet/vs-glp1ra> a fhir:ValueSet ; fhir:id [ fhir:v "vs-glp1ra" ] ; fhir:title [ fhir:v "GLP-1 receptor agonists (CV benefit)" ] .
+<ValueSet/vs-metformin> a fhir:ValueSet ; fhir:id [ fhir:v "vs-metformin" ] ; fhir:title [ fhir:v "Metformin" ] .
+<ValueSet/vs-insulin-basal> a fhir:ValueSet ; fhir:id [ fhir:v "vs-insulin-basal" ] ; fhir:title [ fhir:v "Basal insulin" ] .
+<ValueSet/vs-statin-high> a fhir:ValueSet ; fhir:id [ fhir:v "vs-statin-high" ] ; fhir:title [ fhir:v "High-intensity statins" ] .
+<ValueSet/vs-acei-arb> a fhir:ValueSet ; fhir:id [ fhir:v "vs-acei-arb" ] ; fhir:title [ fhir:v "ACE inhibitors / ARBs" ] .

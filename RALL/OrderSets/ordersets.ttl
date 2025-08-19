@@ -1,0 +1,42 @@
+@prefix fhir:  <http://hl7.org/fhir/> .
+
+<PlanDefinition/bmj-orderset-initial> a fhir:PlanDefinition ;
+  fhir:status [ fhir:v "active" ] ;
+  fhir:title [ fhir:v "Order Set: Initial Labs & Screening" ] ;
+  fhir:action (
+    [ fhir:title [ fhir:v "Labs: HbA1c, fasting lipids, eGFR, urine albumin/creatinine" ] ]
+    [ fhir:title [ fhir:v "BP measurement; BMI" ] ]
+    [ fhir:title [ fhir:v "Retinal screening referral" ] ]
+    [ fhir:title [ fhir:v "Foot risk assessment" ] ]
+    [ fhir:title [ fhir:v "Lifestyle counseling & diabetes education" ] ]
+  ) .
+
+<PlanDefinition/bmj-orderset-cvd> a fhir:PlanDefinition ;
+  fhir:status [ fhir:v "active" ] ;
+  fhir:title [ fhir:v "Order Set: Cardio-protective Agents" ] ;
+  fhir:library ( [ fhir:reference [ fhir:reference [ fhir:v "Library/lib-reco-sglt2" ] ] ] ) ;
+  fhir:action (
+    [ fhir:title [ fhir:v "Initiate SGLT2 inhibitor" ] ;
+      fhir:condition ( [ fhir:kind [ fhir:v "applicability" ] ; fhir:expression [ fhir:language [ fhir:v "text/cql" ] ; fhir:expression [ fhir:v "Recommend SGLT2" ] ] ] ) ]
+    [ fhir:title [ fhir:v "Consider GLP-1 RA with CV benefit" ] ]
+    [ fhir:title [ fhir:v "Statin therapy per risk; ACEi/ARB for BP/renal" ] ]
+  ) .
+
+<PlanDefinition/bmj-orderset-ckd> a fhir:PlanDefinition ;
+  fhir:status [ fhir:v "active" ] ;
+  fhir:title [ fhir:v "Order Set: CKD Risk Reduction" ] ;
+  fhir:action (
+    [ fhir:title [ fhir:v "SGLT2 inhibitor if eGFR threshold met" ] ]
+    [ fhir:title [ fhir:v "ACEi/ARB for albuminuria & BP" ] ]
+    [ fhir:title [ fhir:v "Avoid nephrotoxins; sick-day rules" ] ]
+  ) .
+
+<PlanDefinition/bmj-orderset-monitor> a fhir:PlanDefinition ;
+  fhir:status [ fhir:v "active" ] ;
+  fhir:title [ fhir:v "Order Set: Monitoring & Preventive Care" ] ;
+  fhir:action (
+    [ fhir:title [ fhir:v "HbA1c q3–6 months; lipids per risk" ] ]
+    [ fhir:title [ fhir:v "eGFR & urine ACR at least annually" ] ]
+    [ fhir:title [ fhir:v "Vaccinations; smoking cessation support" ] ]
+    [ fhir:title [ fhir:v "Annual eye screening; foot assessment" ] ]
+  ) .

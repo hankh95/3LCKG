@@ -1,0 +1,10 @@
+@prefix fhir:  <http://hl7.org/fhir/> .
+
+<PlanDefinition/bmj-dt-firstline> a fhir:PlanDefinition ;
+  fhir:status [ fhir:v "active" ] ;
+  fhir:title [ fhir:v "Decision Table: First-line Therapy" ] ;
+  fhir:library ( [ fhir:reference [ fhir:reference [ fhir:v "Library/lib-dt-firstline" ] ] ] ) ;
+  fhir:action ( 
+    [ fhir:title [ fhir:v "Select therapy per decision table" ] ;
+      fhir:dynamicValue ( [ fhir:path [ fhir:v "action.description" ] ; fhir:expression [ fhir:language [ fhir:v "text/cql" ] ; fhir:expression [ fhir:v "Recommendation" ] ] ] ) ]
+  ) .

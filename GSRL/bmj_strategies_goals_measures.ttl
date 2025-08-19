@@ -1,0 +1,50 @@
+@prefix fhir:  <http://hl7.org/fhir/> .
+
+<PlanDefinition/bmj-strategy-initial> a fhir:PlanDefinition ;
+  fhir:status [ fhir:v "active" ] ;
+  fhir:title [ fhir:v "Strategy: Initial Evaluation & Diagnosis" ] ;
+  fhir:goal ( [ fhir:reference [ fhir:reference [ fhir:v "Goal/bmj-goal-baseline" ] ] ] ) ;
+  fhir:action ( [ fhir:title [ fhir:v "OrderSet: Initial Labs & Screening" ] ; fhir:definitionCanonical [ fhir:v "PlanDefinition/bmj-orderset-initial" ] ] ) .
+
+<PlanDefinition/bmj-strategy-glycaemia> a fhir:PlanDefinition ;
+  fhir:status [ fhir:v "active" ] ;
+  fhir:title [ fhir:v "Strategy: Glycaemic Control" ] ;
+  fhir:goal ( [ fhir:reference [ fhir:reference [ fhir:v "Goal/bmj-goal-a1c" ] ] ] ) ;
+  fhir:action ( [ fhir:title [ fhir:v "Decision Table: First-line Therapy" ] ; fhir:definitionCanonical [ fhir:v "PlanDefinition/bmj-dt-firstline" ] ] ) .
+
+<PlanDefinition/bmj-strategy-cvd> a fhir:PlanDefinition ;
+  fhir:status [ fhir:v "active" ] ;
+  fhir:title [ fhir:v "Strategy: CVD & HF Risk Reduction" ] ;
+  fhir:goal ( [ fhir:reference [ fhir:reference [ fhir:v "Goal/bmj-goal-cvd" ] ] ] ) ;
+  fhir:action ( [ fhir:title [ fhir:v "OrderSet: Cardio-protective Agents" ] ; fhir:definitionCanonical [ fhir:v "PlanDefinition/bmj-orderset-cvd" ] ] ) .
+
+<PlanDefinition/bmj-strategy-ckd> a fhir:PlanDefinition ;
+  fhir:status [ fhir:v "active" ] ;
+  fhir:title [ fhir:v "Strategy: Kidney Protection" ] ;
+  fhir:goal ( [ fhir:reference [ fhir:reference [ fhir:v "Goal/bmj-goal-ckd" ] ] ] ) ;
+  fhir:action ( [ fhir:title [ fhir:v "OrderSet: CKD Risk Reduction" ] ; fhir:definitionCanonical [ fhir:v "PlanDefinition/bmj-orderset-ckd" ] ] ) .
+
+<PlanDefinition/bmj-strategy-monitor> a fhir:PlanDefinition ;
+  fhir:status [ fhir:v "active" ] ;
+  fhir:title [ fhir:v "Strategy: Lifestyle, Education & Monitoring" ] ;
+  fhir:goal ( [ fhir:reference [ fhir:reference [ fhir:v "Goal/bmj-goal-prevent-complications" ] ] ] ) ;
+  fhir:action ( [ fhir:title [ fhir:v "OrderSet: Monitoring & Preventive Care" ] ; fhir:definitionCanonical [ fhir:v "PlanDefinition/bmj-orderset-monitor" ] ] ) .
+
+<Goal/bmj-goal-baseline> a fhir:Goal ; fhir:lifecycleStatus [ fhir:v "active" ] ;
+  fhir:description [ fhir:text [ fhir:v "Accurate diagnosis and baseline risk/complication assessment." ] ] .
+
+<Goal/bmj-goal-a1c> a fhir:Goal ; fhir:lifecycleStatus [ fhir:v "active" ] ;
+  fhir:description [ fhir:text [ fhir:v "Achieve individualized HbA1c target with minimal hypoglycaemia." ] ] .
+
+<Goal/bmj-goal-cvd> a fhir:Goal ; fhir:lifecycleStatus [ fhir:v "active" ] ;
+  fhir:description [ fhir:text [ fhir:v "Reduce ASCVD and heart failure events." ] ] .
+
+<Goal/bmj-goal-ckd> a fhir:Goal ; fhir:lifecycleStatus [ fhir:v "active" ] ;
+  fhir:description [ fhir:text [ fhir:v "Slow CKD progression and reduce albuminuria." ] ] .
+
+<Goal/bmj-goal-prevent-complications> a fhir:Goal ; fhir:lifecycleStatus [ fhir:v "active" ] ;
+  fhir:description [ fhir:text [ fhir:v "Prevent micro- and macrovascular complications." ] ] .
+
+<Measure/bmj-measure-sglt2-or-glp1> a fhir:Measure ; fhir:status [ fhir:v "draft" ] ;
+<Measure/bmj-measure-retinal> a fhir:Measure ; fhir:status [ fhir:v "draft" ] ;
+<Measure/bmj-measure-a1c-monitor> a fhir:Measure ; fhir:status [ fhir:v "draft" ] .

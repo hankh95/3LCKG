@@ -1,0 +1,22 @@
+@prefix fhir:  <http://hl7.org/fhir/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+<Library/lib-cf-marked-hyperglycemia> a fhir:Library ;
+  fhir:id [ fhir:v "lib-cf-marked-hyperglycemia" ] ;
+  fhir:title [ fhir:v "Computed CaseFeature: Marked Hyperglycaemia" ] ;
+  fhir:status [ fhir:v "active" ] ;
+  fhir:content (
+    [ fhir:contentType [ fhir:v "text/markdown" ] ;
+      fhir:data [ fhir:v "Pseudocode: IF A1c >= 10% OR very high random glucose OR catabolic symptoms THEN MarkedHyperglycaemia = TRUE"^^xsd:string ] ]
+    [ fhir:contentType [ fhir:v "text/cql" ] ;
+      fhir:data [ fhir:v "library CF_MarkedHyper version '1.0.0'\nusing FHIR version '4.0.1'\ninclude FHIRHelpers version '4.0.1'\ncontext Patient\ndefine \"Marked Hyperglycaemia\": exists([Observation: code ~ ToConcept('http://loinc.org|4548-4')] O where ToDecimal(O.value) >= 10.0)"^^xsd:string ] ] ) .
+
+<Library/lib-cf-ckd-sglt2-eligibility> a fhir:Library ;
+  fhir:id [ fhir:v "lib-cf-ckd-sglt2-eligibility" ] ;
+  fhir:title [ fhir:v "Computed CaseFeature: CKD SGLT2 Eligibility" ] ;
+  fhir:status [ fhir:v "active" ] ;
+  fhir:content (
+    [ fhir:contentType [ fhir:v "text/markdown" ] ;
+      fhir:data [ fhir:v "Pseudocode: IF CKD with albuminuria AND eGFR >= 20 THEN EligibleForSGLT2 = TRUE"^^xsd:string ] ]
+    [ fhir:contentType [ fhir:v "text/cql" ] ;
+      fhir:data [ fhir:v "library CF_CKD_SGLT2_Eligibility version '1.0.0'\nusing FHIR version '4.0.1'\ninclude FHIRHelpers version '4.0.1'\nvalueset \"CKD with albuminuria\": 'ValueSet/vs-ckd-alb'\ncontext Patient\ndefine \"Eligible For SGLT2\": exists([Condition: code in \"CKD with albuminuria\"]) and exists([Observation: code ~ ToConcept('http://loinc.org|33914-3')] O where ToDecimal(O.value) >= 20.0)"^^xsd:string ] ] ) .

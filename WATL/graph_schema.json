@@ -1,0 +1,97 @@
+{
+  "nodes": {
+    "Topic": {
+      "props": [
+        "id",
+        "display"
+      ]
+    },
+    "Strategy": {
+      "props": [
+        "id",
+        "title"
+      ]
+    },
+    "Goal": {
+      "props": [
+        "id",
+        "text"
+      ]
+    },
+    "Measure": {
+      "props": [
+        "id",
+        "title"
+      ]
+    },
+    "PlanDefinition": {
+      "props": [
+        "id",
+        "title"
+      ]
+    },
+    "Library": {
+      "props": [
+        "id",
+        "title",
+        "type"
+      ]
+    },
+    "ValueSet": {
+      "props": [
+        "id",
+        "title"
+      ]
+    },
+    "ObservationDefinition": {
+      "props": [
+        "id",
+        "codeText"
+      ]
+    },
+    "Action": {
+      "props": [
+        "id",
+        "title"
+      ]
+    }
+  },
+  "edges": {
+    "HAS_STRATEGY": [
+      "Topic",
+      "Strategy"
+    ],
+    "ACHIEVES": [
+      "Strategy",
+      "Goal"
+    ],
+    "EVALUATED_BY": [
+      "Goal",
+      "Measure"
+    ],
+    "USES": [
+      "PlanDefinition",
+      "Library"
+    ],
+    "ORDERS": [
+      "PlanDefinition",
+      "Action"
+    ],
+    "APPLIES_TO": [
+      "Action",
+      "ValueSet"
+    ],
+    "COMPUTES": [
+      "Library",
+      "ObservationDefinition"
+    ],
+    "NEXT": [
+      "Action",
+      "Action"
+    ],
+    "WRAPS": [
+      "PlanDefinition",
+      "Library"
+    ]
+  }
+}

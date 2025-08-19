@@ -1,0 +1,100 @@
+{
+  "description": "BEST Layer schema to represent BMJ Best Practice prose and link to executable layers (GSRL, RALL, WATL).",
+  "node_labels": {
+    "BestTopic": {
+      "props": [
+        "id",
+        "title",
+        "version",
+        "language",
+        "uri"
+      ]
+    },
+    "BestSection": {
+      "props": [
+        "id",
+        "title",
+        "level",
+        "order"
+      ]
+    },
+    "BestItem": {
+      "props": [
+        "id",
+        "title",
+        "type",
+        "order"
+      ]
+    },
+    "BestParagraph": {
+      "props": [
+        "id",
+        "text",
+        "order"
+      ]
+    },
+    "Concept": {
+      "props": [
+        "code",
+        "system",
+        "display"
+      ]
+    },
+    "Reference": {
+      "props": [
+        "id",
+        "citation",
+        "doi",
+        "pmid",
+        "url"
+      ]
+    },
+    "AssetRef": {
+      "props": [
+        "id",
+        "layer",
+        "assetId",
+        "assetType",
+        "title"
+      ]
+    }
+  },
+  "edge_types": {
+    "HAS_SECTION": [
+      "BestTopic",
+      "BestSection"
+    ],
+    "HAS_SUBSECTION": [
+      "BestSection",
+      "BestSection"
+    ],
+    "HAS_ITEM": [
+      "BestSection",
+      "BestItem"
+    ],
+    "HAS_PARAGRAPH": [
+      "BestItem",
+      "BestParagraph"
+    ],
+    "ABOUT": [
+      "BestItem",
+      "Concept"
+    ],
+    "MENTIONS": [
+      "BestParagraph",
+      "Concept"
+    ],
+    "CITES": [
+      "BestItem",
+      "Reference"
+    ],
+    "NEXT": [
+      "*",
+      "*"
+    ],
+    "LINKS_TO_ASSET": [
+      "*",
+      "AssetRef"
+    ]
+  }
+}

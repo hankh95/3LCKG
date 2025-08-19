@@ -1,0 +1,4 @@
+@prefix fhir:  <http://hl7.org/fhir/> .
+<Measure/bmj-measure-sglt2-or-glp1> a fhir:Measure ; fhir:status [ fhir:v "draft" ] ; fhir:title [ fhir:v "% T2DM+ASCVD on SGLT2 or GLP-1" ] .
+<Measure/bmj-measure-retinal> a fhir:Measure ; fhir:status [ fhir:v "draft" ] ; fhir:title [ fhir:v "% annual retinal screening" ] .
+<Measure/bmj-measure-a1c-monitor> a fhir:Measure ; fhir:status [ fhir:v "draft" ] ; fhir:title [ fhir:v "% with A1c within 6 months" ] .

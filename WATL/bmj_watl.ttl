@@ -1,0 +1,23 @@
+@prefix fhir:  <http://hl7.org/fhir/> .
+
+<PlanDefinition/bmj-t2dm-watl> a fhir:PlanDefinition ;
+  fhir:id [ fhir:v "bmj-t2dm-watl" ] ;
+  fhir:status [ fhir:v "active" ] ;
+  fhir:title [ fhir:v "BMJ T2DM – Longitudinal Workflow" ] ;
+  fhir:meta [ fhir:profile ( [ fhir:v "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-strategydefinition" ] ) ] ;
+  fhir:action (
+    [ fhir:id [ fhir:v "A0" ] ; fhir:title [ fhir:v "Initial evaluation & diagnosis" ] ;
+      fhir:definitionCanonical [ fhir:v "PlanDefinition/bmj-orderset-initial" ] ]
+    [ fhir:id [ fhir:v "A1" ] ; fhir:title [ fhir:v "Select first-line therapy" ] ;
+      fhir:definitionCanonical [ fhir:v "PlanDefinition/bmj-dt-firstline" ] ;
+      fhir:relatedAction ( [ fhir:actionId [ fhir:v "A0" ] ; fhir:relationship [ fhir:v "after-end" ] ] ) ]
+    [ fhir:id [ fhir:v "A2" ] ; fhir:title [ fhir:v "Cardio-renal protective therapy" ] ;
+      fhir:definitionCanonical [ fhir:v "PlanDefinition/bmj-orderset-cvd" ] ;
+      fhir:relatedAction ( [ fhir:actionId [ fhir:v "A1" ] ; fhir:relationship [ fhir:v "after-end" ] ] ) ]
+    [ fhir:id [ fhir:v "A3" ] ; fhir:title [ fhir:v "CKD risk reduction" ] ;
+      fhir:definitionCanonical [ fhir:v "PlanDefinition/bmj-orderset-ckd" ] ;
+      fhir:relatedAction ( [ fhir:actionId [ fhir:v "A2" ] ; fhir:relationship [ fhir:v "after-end" ] ] ) ]
+    [ fhir:id [ fhir:v "A4" ] ; fhir:title [ fhir:v "Lifestyle, education & monitoring" ] ;
+      fhir:definitionCanonical [ fhir:v "PlanDefinition/bmj-orderset-monitor" ] ;
+      fhir:relatedAction ( [ fhir:actionId [ fhir:v "A0" ] ; fhir:relationship [ fhir:v "after-start" ] ] ) ]
+  ) .

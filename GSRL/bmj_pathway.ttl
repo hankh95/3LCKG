@@ -1,0 +1,21 @@
+@prefix fhir:  <http://hl7.org/fhir/> .
+@prefix sct:   <http://snomed.info/id/> .
+
+<PlanDefinition/bmj-t2dm-pathway> a fhir:PlanDefinition ;
+  fhir:id [ fhir:v "bmj-t2dm-pathway" ] ;
+  fhir:status [ fhir:v "active" ] ;
+  fhir:title [ fhir:v "BMJ Best Practice – Type 2 Diabetes Mellitus (T2DM) Pathway" ] ;
+  fhir:meta [ fhir:profile ( [ fhir:v "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-pathwaydefinition" ] ) ] ;
+  fhir:subjectCodeableConcept [ fhir:coding ( [ fhir:system [ fhir:v "http://snomed.info/sct" ] ; fhir:code [ fhir:v "44054006" ] ; fhir:display [ fhir:v "Type 2 diabetes mellitus" ] ] ) ] ;
+  fhir:action (
+    [ fhir:title [ fhir:v "Strategy: Initial Evaluation & Diagnosis" ] ;
+      fhir:definitionCanonical [ fhir:v "PlanDefinition/bmj-strategy-initial" ] ]
+    [ fhir:title [ fhir:v "Strategy: Glycaemic Control" ] ;
+      fhir:definitionCanonical [ fhir:v "PlanDefinition/bmj-strategy-glycaemia" ] ]
+    [ fhir:title [ fhir:v "Strategy: Cardiovascular & Heart Failure Risk Reduction" ] ;
+      fhir:definitionCanonical [ fhir:v "PlanDefinition/bmj-strategy-cvd" ] ]
+    [ fhir:title [ fhir:v "Strategy: Kidney Protection" ] ;
+      fhir:definitionCanonical [ fhir:v "PlanDefinition/bmj-strategy-ckd" ] ]
+    [ fhir:title [ fhir:v "Strategy: Lifestyle, Education & Monitoring" ] ;
+      fhir:definitionCanonical [ fhir:v "PlanDefinition/bmj-strategy-monitor" ] ]
+  ) .
